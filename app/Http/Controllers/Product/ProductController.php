@@ -12,8 +12,8 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $categories = Product::with('category')->get();
-        return view('products.index', compact('categories'));
+        $products = Product::with('category')->get();
+        return view('products.index', compact('products'));
     }
 
     public function create()
@@ -28,9 +28,9 @@ class ProductController extends Controller
 
         $product = Product::query()->create([
             'name' => $dto->name,
+            'category_id' => $dto->category_id,
             'description' => $dto->description,
             'price' => $dto->price,
-            'category_id' => $dto->category_id,
         ]);
 
         return redirect(route('products.index'));
@@ -53,6 +53,7 @@ class ProductController extends Controller
         $dto = $request->validate();
 
         $product->update([
+            'id' => $dto->id,
             'name' => $dto->name,
             'description' => $dto->description,
             'price' => $dto->price,

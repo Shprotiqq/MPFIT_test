@@ -36,4 +36,15 @@ class Order extends Model
     {
         return trim("{$this->customer_last_name} {$this->customer_first_name} {$this->customer_middle_name}");
     }
+
+
+    public function getFormattedCreatedAtAttribute(): string
+    {
+        return $this->created_at->format('d-m-Y H:i');
+    }
+
+    public function getFullPriceAttribute(): string
+    {
+        return $this->product->price * $this->quantity;
+    }
 }

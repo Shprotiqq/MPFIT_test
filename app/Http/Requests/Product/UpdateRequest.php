@@ -16,20 +16,24 @@ class UpdateRequest extends FormRequest
     {
         return [
             'name' => 'sometimes|string|max:255',
+            'category_id' => 'sometimes|exists:categories,id',
             'description' => 'sometimes|string',
             'price' => 'sometimes|numeric|min:0',
-            'category_id' => 'sometimes|nullable|exists:categories,id',
         ];
     }
 
     public function validate(): UpdateDTO
     {
+        $price = $this->input('price', $this->product->price);
+        $price = str_replace(',', '.', $price);
+        $price = (float) $price;
+
         return new UpdateDTO(
-            id: $this->route('id'),
+            id: $this->product->id,
             name: $this->input('name', $this->product->name),
+            category_id: (int) $this->input('category_id', $this->product->category_id),
             description: $this->input('description', $this->product->description),
-            price: (float) $this->input('price', $this->product->price),
-            category_id: $this->input('category_id', $this->product->category_id),
+            price: $price,
         );
     }
 }

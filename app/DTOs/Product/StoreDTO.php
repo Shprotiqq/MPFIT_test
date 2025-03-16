@@ -6,11 +6,11 @@ class StoreDTO extends ProductDTO
 {
     public function __construct(
         string $name,
-        string $description,
+        int $categoryId,
+        ?string $description,
         float $price,
-        ?int $categoryId = null,
     )
     {
-        parent::__construct($name, $description, $price, $categoryId);
+        parent::__construct($name, $categoryId, $description, $price);
     }
 }

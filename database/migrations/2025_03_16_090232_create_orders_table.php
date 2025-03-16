@@ -20,14 +20,13 @@ return new class extends Migration
             $table->string('status')
                 ->default(\App\Enums\OrderStatus::New->value);
 
-            $table->text('customer_comment');
+            $table->text('customer_comment')
+                ->nullable();
 
             $table->foreignIdFor(Product::class, 'product_id')
                 ->constrained('products');
 
             $table->integer('quantity');
-
-            $table->decimal('total_price', 8, 2);
 
             $table->timestamps();
         });

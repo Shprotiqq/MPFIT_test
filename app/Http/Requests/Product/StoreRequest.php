@@ -16,8 +16,8 @@ class StoreRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'category_id' => 'nullable|integer|exists:categories,id',
-            'description' => 'required|string',
+            'category_id' => 'required|integer|exists:categories,id',
+            'description' => 'nullable|string',
             'price' => 'required|numeric|min:0',
         ];
     }
@@ -26,9 +26,9 @@ class StoreRequest extends FormRequest
     {
         return new StoreDTO(
             name: $this->input('name'),
+            categoryId: $this->input('category_id'),
             description: $this->input('description'),
             price: (float)$this->input('price'),
-            categoryId: $this->input('category_id'),
         );
     }
 }
