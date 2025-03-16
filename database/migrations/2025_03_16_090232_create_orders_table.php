@@ -12,9 +12,13 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
 
-            $table->string('customer_name');
+            $table->string('customer_last_name');
+            $table->string('customer_first_name');
+            $table->string('customer_middle_name')
+                ->nullable();
 
-            $table->string('status')->default(\App\Enums\OrderStatus::New->value);
+            $table->string('status')
+                ->default(\App\Enums\OrderStatus::New->value);
 
             $table->text('customer_comment');
 

@@ -13,7 +13,9 @@ class Order extends Model
     protected $table = 'orders';
 
     protected $fillable = [
-        'customer_name',
+        'customer_last_name',
+        'customer_first_name',
+        'customer_middle_name',
         'status',
         'customer_comment',
         'product_id',
@@ -28,5 +30,10 @@ class Order extends Model
     public function product(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Product::class);
+    }
+
+    public function getCustomerFullNameAttribute(): string
+    {
+        return trim("{$this->customer_last_name} {$this->customer_first_name} {$this->customer_middle_name}");
     }
 }
