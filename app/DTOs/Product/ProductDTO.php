@@ -3,8 +3,6 @@
 namespace App\DTOs\Product;
 
 
-use InvalidArgumentException;
-
 abstract class ProductDTO
 {
     public function __construct(
@@ -15,10 +13,9 @@ abstract class ProductDTO
         public readonly ?int $id = null,
         public readonly ?string $createdAt = null,
         public readonly ?string $updatedAt = null,
-    )
-    {
+    ) {
         if ($price < 0) {
-            throw new InvalidArgumentException('Цена не может быть отрицательной.');
+            throw new \InvalidArgumentException('Цена не может быть отрицательной.');
         }
     }
 }
