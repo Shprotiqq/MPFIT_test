@@ -6,10 +6,10 @@ namespace App\DTOs\Product;
 abstract class ProductDTO
 {
     public function __construct(
-        public string $name,
-        public int $category_id,
-        public ?string $description = null,
-        public float $price,
+        public readonly string $name,
+        public readonly int $category_id,
+        public readonly ?string $description = null,
+        public readonly float $price,
     )
     {
         if ($price < 0) {

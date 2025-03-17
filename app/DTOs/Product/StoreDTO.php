@@ -2,7 +2,7 @@
 
 namespace App\DTOs\Product;
 
-class StoreDTO extends ProductDTO
+final class StoreDTO extends ProductDTO
 {
     public function __construct(
         string $name,

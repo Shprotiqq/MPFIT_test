@@ -2,12 +2,12 @@
 
 namespace App\DTOs\Order;
 
-class StoreDTO extends OrderDTO
+final class StoreDTO extends OrderDTO
 {
     public function __construct(
         string $customer_last_name,
         string $customer_first_name,
-        ?string $customer_middle_name,
+        ?string $customer_middle_name = null,
         int $product_id,
         int $quantity,
         string $status,

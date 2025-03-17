@@ -2,14 +2,14 @@
 
 namespace App\DTOs\Product;
 
-class UpdateDTO extends ProductDTO
+final class UpdateDTO extends ProductDTO
 {
     public function __construct(
-        public int $id,
-        public string $name,
-        public int $category_id,
-        public ?string $description,
-        public float $price,
+        public readonly int $id,
+        string $name,
+        int $category_id,
+        ?string $description = null,
+        float $price,
     )
     {
         parent::__construct($name, $category_id, $description, $price);

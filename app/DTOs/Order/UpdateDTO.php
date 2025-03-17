@@ -2,7 +2,7 @@
 
 namespace App\DTOs\Order;
 
-class UpdateDTO extends OrderDTO
+final class UpdateDTO extends OrderDTO
 {
     public function __construct(
         public int $id,
@@ -12,7 +12,7 @@ class UpdateDTO extends OrderDTO
         int $product_id,
         int $quantity,
         string $status,
-        ?string $customer_comment,
+        ?string $customer_comment = null,
     )
     {
         parent::__construct(
