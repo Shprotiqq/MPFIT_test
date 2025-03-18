@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Casts;
 
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 
-class FullPrice implements CastsAttributes
+final class FullPrice implements CastsAttributes
 {
-    public function get($model, string $key, $value, array $attributes)
+    public function get($model, string $key, $value, array $attributes): int|float
     {
         return $model->product->price * $model->quantity;
     }
