@@ -35,4 +35,7 @@ Route::prefix('order')->name('orders.')->group(function () {
     Route::put('/{order}', \App\Http\Controllers\Order\UpdateController::class)->name('update');
 
     Route::delete('/{order}', \App\Http\Controllers\Order\DeleteController::class)->name('delete');
+
+    Route::post('/{order}/complete', \App\Http\Controllers\Order\StatusChangeController::class)->name('complete');
 });
+
