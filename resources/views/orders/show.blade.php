@@ -5,7 +5,8 @@
 @section('content')
     <h1>Просмотр заказа</h1>
     <p><strong>ID:</strong> {{ $order->id }}</p>
-    <p><strong>Покупатель:</strong> {{ $order->getCustomerFullNameAttribute() }}</p>
+    <p><strong>Дата создания:</strong> {{ $order->created_at->format('d-m-Y H:i') }}</p>
+    <p><strong>Покупатель:</strong> {{ $order->fullName }}</p>
     <p><strong>Товар:</strong> {{ $order->product->name }}</p>
     <p><strong>Количество:</strong> {{ $order->quantity }}</p>
     <p><strong>Итоговая цена:</strong> {{ $order->total_price }} руб.</p>

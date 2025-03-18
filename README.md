@@ -1,23 +1,16 @@
 # Тестовое задание для MPFIT
 
-## Инструкция по развертыванию:
-1. `cp .env.example .env`
-2. Установить в .env файле данные для входа в БД
-3. `npm install`
-4. `npm run build`
-5. `composer install`
-6. `php artisan key:generate`
-7. `php artisan migrate --seed`
+## Для развертывания использовать нужно команду:
+`make install` 
 
-## Инструкция по развертыванию через Docker
-1. `cp .env.example .env`
-2. Установить в .env файле данные для входа в БД
-2. `docker compose up --build -d nginx`
-3. `docker compose run --rm npm install`
-4. `docker compose run --rm npm run build`
-5. `docker compose exec -it php composer install`
-6. `docker compose exec -it php php artisan key:generate`
-7. `docker compose exec -it php php artisan migrate --seed`
+## Для последующего развертывания необходимо вводить команду:
+`make up`
+
+## Для развертывания через Docker нужно использовать команду:
+`make docker-install`
+
+## Для последующего развертывания через Docker необходимо вводить команду:
+`make docker-up`
 
 
 ## Цель задания:

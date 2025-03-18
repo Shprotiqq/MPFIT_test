@@ -25,7 +25,7 @@
                 <td>
                     <a href="{{ route('products.show', $product) }}" class="btn btn-info">Просмотр</a>
                     <a href="{{ route('products.edit', $product) }}" class="btn btn-warning">Редактировать</a>
-                    <form action="{{ route('products.destroy', $product) }}" method="POST" style="display:inline;">
+                    <form action="{{ route('products.delete', $product) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Удалить</button>

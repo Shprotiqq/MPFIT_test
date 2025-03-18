@@ -22,10 +22,10 @@
         @foreach ($orders as $order)
             <tr>
                 <td>{{ $order->id }}</td>
-                <td>{{ $order->getFormattedCreatedAtAttribute() }}</td>
-                <td>{{ $order->getCustomerFullNameAttribute() }}</td>
+                <td>{{ $order->created_at->format('d-m-Y H:i') }}</td>
+                <td>{{ $order->fullName }}</td>
                 <td>{{ $order->status }}</td>
-                <td>{{ $order->getFullPriceAttribute() }} руб.</td>
+                <td>{{ $order->fullPrice }} руб.</td>
                 <td>
                     <a href="{{ route('orders.show', $order) }}" class="btn btn-info">
                         Просмотр
@@ -33,7 +33,7 @@
                     <a href="{{ route('orders.edit', $order) }}" class="btn btn-warning">
                         Редактировать
                     </a>
-                    <form action="{{ route('orders.destroy', $order) }}" method="POST" style="display:inline;">
+                    <form action="{{ route('orders.delete', $order) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">

@@ -48,8 +48,8 @@
                 Статус
             </label>
             <select name="status" id="status" class="form-control" required>
-                <option value="new" {{ $order->status == 'new' ? 'selected' : '' }}>Новый</option>
-                <option value="completed" {{ $order->status == 'completed' ? 'selected' : '' }}>Завершен</option>
+                <option value="Новый" {{ $order->status == 'Новый' ? 'selected' : '' }}>Новый</option>
+                <option value="Выполнен" {{ $order->status == 'Выполнен' ? 'selected' : '' }}>Выполнен</option>
             </select>
         </div>
         <div class="mb-3">
