@@ -13,16 +13,15 @@ final class UpdateController extends Controller
 {
     public function __invoke(UpdateRequest $request, Product $product): RedirectResponse
     {
-        $dto = $request->validate();
+        $requestData = $request->validated();
 
         $product->update([
-            'id' => $dto->id,
-            'name' => $dto->name,
-            'description' => $dto->description,
-            'price' => $dto->price,
-            'category_id' => $dto->category_id,
+            'name' => $requestData['name'],
+            'category_id' => $requestData['category_id'],
+            'description' => $requestData['description'] ?? null,
+            'price' => $requestData['price'],
         ]);
 
-        return redirect(route('products.index'));
+        return redirect()->route('products.index')->with('success', 'Информация о продукте обновлена');
     }
 }

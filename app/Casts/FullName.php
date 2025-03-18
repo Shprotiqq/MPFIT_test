@@ -6,29 +6,11 @@ use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 
 class FullName implements CastsAttributes
 {
-    /**
-     * Cast the given value.
-     *
-     * @param  \Illuminate\Database\Eloquent\Model  $model
-     * @param  string  $key
-     * @param  mixed  $value
-     * @param  array  $attributes
-     * @return mixed
-     */
     public function get($model, string $key, $value, array $attributes)
     {
-        return $value;
+        return trim("{$model->customer_last_name} {$model->customer_first_name} {$model->customer_middle_name}");
     }
 
-    /**
-     * Prepare the given value for storage.
-     *
-     * @param  \Illuminate\Database\Eloquent\Model  $model
-     * @param  string  $key
-     * @param  mixed  $value
-     * @param  array  $attributes
-     * @return mixed
-     */
     public function set($model, string $key, $value, array $attributes)
     {
         return $value;

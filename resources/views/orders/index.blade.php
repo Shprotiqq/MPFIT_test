@@ -22,8 +22,8 @@
         @foreach ($orders as $order)
             <tr>
                 <td>{{ $order->id }}</td>
-                <td>{{ $order->getFormattedCreatedAtAttribute() }}</td>
-                <td>{{ $order->getCustomerFullNameAttribute() }}</td>
+                <td>{{ $order->created_at->format('d-m-Y H:i') }}</td>
+                <td>{{ $order->fullName }}</td>
                 <td>{{ $order->status }}</td>
                 <td>{{ $order->fullPrice }} руб.</td>
                 <td>

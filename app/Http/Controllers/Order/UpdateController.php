@@ -22,9 +22,9 @@ final class UpdateController extends Controller
             'status' => $requestData['status'],
             'customer_comment' => $requestData['customer_comment'] ?? null,
             'product_id' => $requestData['product_id'],
-            'quantity' => $requestData['quantity'],
+            'quantity' => $requestData['quantity']
         ]);
 
-        return redirect()->route('orders.index');
+        return redirect()->route('orders.index')->with('success', 'Заказ успешно обновлен');
     }
 }

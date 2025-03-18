@@ -19,10 +19,10 @@ class UpdateRequest extends FormRequest
             'customer_last_name' => 'required|string|max:255',
             'customer_first_name' => 'required|string|max:255',
             'customer_middle_name' => 'nullable|string|max:255',
-            'status' => ['required', Rule::enum(OrderStatus::class)],
-            'customer_comment' => 'nullable|string',
             'product_id' => 'required|integer|exists:products,id',
             'quantity' => 'required|integer|min:1',
+            'status' => ['required', Rule::enum(OrderStatus::class)],
+            'customer_comment' => 'nullable|string',
         ];
     }
 }

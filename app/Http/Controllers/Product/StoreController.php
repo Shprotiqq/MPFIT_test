@@ -13,15 +13,15 @@ final class StoreController extends Controller
 {
     public function __invoke(StoreRequest $request): RedirectResponse
     {
-        $dto = $request->validate();
+        $requestData = $request->validated();
 
-        $product = Product::query()->create([
-            'name' => $dto->name,
-            'category_id' => $dto->category_id,
-            'description' => $dto->description,
-            'price' => $dto->price,
+        Product::query()->create([
+            'name' => $requestData['name'],
+            'category_id' => $requestData['category_id'],
+            'description' => $requestData['description'] ?? null,
+            'price' => $requestData['price'],
         ]);
 
-        return redirect(route('products.index'));
+        return redirect()->route('products.index')->with('success', 'Продукт успешно создан');
     }
 }
